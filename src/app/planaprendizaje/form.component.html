@@ -4,7 +4,7 @@
 <mat-stepper [linear]="isLinear" #stepper>
 
   <!-- Paso 1 -->
-
+  <!-- Todos los td necesitan ser llenados consumiendo la api -->
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Datos generales</ng-template>
@@ -62,7 +62,7 @@
 
 
   <!-- Segundo paso -->
-
+  <!-- En el segundo paso no existe consumo de servicios solo son datos quemados -->
   <mat-step [stepControl]="secondFormGroup" label="Evaluación">
     <form [formGroup]="secondFormGroup">
 
@@ -94,41 +94,234 @@
         </tbody>
       </table>
 
-      <div style="text-align: center; border-width: 1px;" >
+      <div style="text-align: center; border-width: 1px;" class="d-flex justify-content-between">
         <button type="button" class="btn btn-outline-primary" matStepperPrevious>Retroceder</button>
         <button type="button" class="btn btn-outline-primary" matStepperNext>Continuar</button>
       </div>
     </form>
   </mat-step>
 
-  <!-- Paso N -->
-
-  <mat-step [stepControl]="secondFormGroup" label="Paso N">
+  <!-- Tercer Paso PLAN MARCO DE FORMACION-->
+  <!-- El coordinador crea los marcos de formación -->
+  <mat-step [stepControl]="secondFormGroup" label="Plan marco de formación">
     <form [formGroup]="secondFormGroup">
-      <div>
-        <h1>jajaja</h1>
+
+      <h5 class="card-tittle">Plan marco de formación</h5>
+      <Table class="table ">
+        <thead align="center">
+          <tr>
+
+            <th>Resultados de aprendizajes esperados</th>
+            <th>Descripción de las actividades principales que desarrollará el estudiante</th>
+            <th>Periodo académico equivelente en el que se realiza las prácticas</th>
+            <th>Asignaturas relacionadas</th>
+            <th>Número de horas</th>
+
+          </tr>
+        </thead>
+        <tbody class="table-group-divider" align="center">
+          <tr>
+            <td>id</td>
+            <td>nombre</td>
+            <td>apellido</td>
+            <td>email</td>
+            <td>fecha</td>
+            <td>
+              <button type="button" name="button" class="btn btn-primary">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+
+      <!-- Este boton es para crear los planes de formacion -->
+      <!-- <div style="text-align: center;">
+        <button type="button" class="btn btn-outline-primary">Crear Plan marco de formación</button>
+      </div> -->
+
+      <div class="accordion" id="accordionMarcoFormacion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+             Crear Plan Marco de formación
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+              <!-- Aqui inicia el formulario -->
+              <!-- https://getbootstrap.com/docs/5.2/forms/overview/#overview 
+              https://getbootstrap.com/docs/5.2/components/accordion/ -->
+              <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Resultados de aprendizajes esperados</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Descripción de las actividades principales que desarrollará el estudiante</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Periodo académico equivelente en el que se realiza las prácticas</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Asignaturas relacionadas</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Número de horas</label>
+                  <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+
+                <div class="form-group row">
+                  <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-primary">Aceptar</button>
+                  </div>
+                </div>
+              </form>
+
+
+
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- (((((((((((((((((((()))))))))))))))))))) -->
 
-      <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
-        <input matInput placeholder="Ex. 1 Main St, New York, NY" required>
-      </mat-form-field>
-
-      <div style="text-align: center;">
+      <div style="text-align: center;" class="d-flex justify-content-between">
         <button type="button" class="btn btn-outline-primary" matStepperPrevious>Retroceder</button>
         <button type="button" class="btn btn-outline-primary" matStepperNext>Continuar</button>
       </div>
     </form>
   </mat-step>
 
-  <!--  Paso  Final -->
+ <!-- Paso 4 PLAN DE ROTACION -->
 
-  <mat-step>
-    <ng-template matStepLabel>Terminar</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
+ <mat-step [stepControl]="secondFormGroup" label="Plan de rotacion">
+  <form [formGroup]="secondFormGroup">
+    <h5 class="card-tittle">Plan de rotacion</h5>
+
+    <!-- Tabla con los planes creados -->
+      <Table class="table ">
+        <thead align="center">
+          <tr>
+
+            <th>Objetivos de aprendizaje</th>
+            <th>Actividades específicas a desarrollar</th>
+            <th>Funciones/Areas</th>
+            <th>Horas destinadas a la actividad</th>
+            <th>Planificacion</th>
+
+          </tr>
+        </thead>
+        <tbody class="table-group-divider" align="center">
+          <tr>
+            <td>asdf</td>
+            <td>asdfdhgjkh</td>
+            <td>ashdgjf,k</td>
+            <td>asfhdgkj</td>
+            <td>asfhdgjfklh</td>
+            <td>
+              <button type="button" name="button" class="btn btn-primary">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+
+      <!-- Este boton es para crear los planes de formacion -->
+      <!-- <div style="text-align: center;">
+        <button type="button" class="btn btn-outline-primary">Crear Plan marco de formación</button>
+      </div> -->
+
+      <div class="accordion" id="accordionPlanRotacion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingthwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+             Crear Plan de rotación
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+
+              <!-- Aqui inicia el formulario -->
+              <!-- https://getbootstrap.com/docs/5.2/forms/overview/#overview 
+              https://getbootstrap.com/docs/5.2/components/accordion/ -->
+              <form class="row g-3">
+                <div class="col-md-4">
+                  <label for="validationDefault01" class="form-label">Objetivos aprendizaje</label>
+                  <input type="text" class="form-control" id="validationDefault01" value="Mark" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationDefault02" class="form-label">Actividades especificas a desarrollar</label>
+                  <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationDefault02" class="form-label">Funciones</label>
+                  <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationDefault02" class="form-label">Horas destinadas a la actividad</label>
+                  <input type="number" class="form-control " id="validationDefault02" value="Otto" required>
+                </div>
+                <div class="col-md-8">
+                  <label for="validationDefault03" class="form-label">Planificación (Semanas)</label>
+                  <div class="  row g-2">
+                    <div class="col-md-4">
+                      <label for="validationDefault02" class="form-label">Semana de inicio</label>
+                      <input type="number" class="form-control " id="validationDefault02" value="Otto" required>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="validationDefault02" class="form-label">Semana de finalización</label>
+                      <input type="number" class="form-control " id="validationDefault02" value="Otto" required>
+                    </div>
+                  </div>
+                  
+                </div>
+                
+                <div class="col-12">
+                  <button class="btn btn-primary" type="submit">Aceptar</button>
+                </div>
+              </form>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- (((((((((((((((((((()))))))))))))))))))) -->
+
+      <div style="text-align: center;" class="d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-primary" matStepperPrevious>Retroceder</button>
+        <button type="button" class="btn btn-outline-primary" matStepperNext>Continuar</button>
+      </div>
+  </form>
+</mat-step>
+
+  <!-- Paso 5 -->
+
+  <mat-step [stepControl]="secondFormGroup" label="Descarga del documento">
+    <form [formGroup]="secondFormGroup">
+      <button type="button" class="btn btn-outline-primary" matStepperPrevious>Retroceder</button>
+        <button type="button" class="btn btn-outline-primary" matStepperNext>Continuar</button>
+
+    </form>
   </mat-step>
-</mat-stepper>
+
+    <!-- Paso 6 -->
+
+    <mat-step [stepControl]="secondFormGroup" label="Subida del documento">
+      <form [formGroup]="secondFormGroup">
+        
+        <div style="text-align: center;" class="d-flex justify-content-between">
+          <button type="button" class="btn btn-outline-primary" [routerLink]="['/planAprendizaje']">Finalizar</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+
