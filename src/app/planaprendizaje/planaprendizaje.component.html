@@ -1,0 +1,33 @@
+<div class="card border-primary mb-3" style="width: 100%; height: 100%;">
+  <div class="card-header">
+    Lista de estudiantes practicantes
+  </div>
+
+  <Table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Cedula</th>
+        <th>IdPractica</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- Aqui se debe consultar e insertar la información de los practicantes. -->
+      <tr>
+        <td>010512478</td>
+        <td>1000</td>
+        <td>Pedro</td>
+        <td>General</td>
+        <td style="width: 250px;" align="center">
+          <button type="button" class="btn btn-outline-primary" [routerLink]="['/planaprendizaje/form']">Crear plan de
+            aprendizaje</button>
+        </td>
+        <td style="width: 250px;" align="center">
+          <button type="button" class="btn btn-outline-primary">Descargar doc</button>
+        </td>
+      </tr>
+    </tbody>
+  </Table>
+</div>

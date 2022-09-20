@@ -1,0 +1,134 @@
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+<mat-stepper [linear]="isLinear" #stepper>
+
+  <!-- Paso 1 -->
+
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Datos generales</ng-template>
+
+
+      <table class="table table-striped">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Nombre de la empresa formadora</th>
+            <td>Inova</td>
+          </tr>
+          <tr>
+            <th scope="row">Representante legal</th>
+            <td>Jacob</td>
+          </tr>
+          <tr>
+            <th scope="row">Descripción de la empresa</th>
+            <td>Larry the Bird</td>
+          </tr>
+          <tr>
+            <th scope="row">Carrera</th>
+            <td>Larry the Bird</td>
+          </tr>
+          <tr>
+            <th scope="row">Resolución de aprobación ITV</th>
+            <td>Larry the Bird</td>
+          </tr>
+          <tr>
+            <th scope="row">Número del convenio</th>
+            <td>Larry the Bird</td>
+          </tr>
+          <tr>
+            <th scope="row">Nombre del estudiante</th>
+            <td>Larry the Bird</td>
+          </tr>
+          <tr>
+            <th scope="row">Cedula</th>
+            <td>Larry the Bird</td>
+          </tr>
+          <tr>
+            <th scope="row">Correo</th>
+            <td>Larry the Bird</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Botones -->
+      <div style="text-align: center;">
+        <button type="button" class="btn btn-outline-primary" matStepperNext>Confirmar Información</button>
+      </div>
+
+    </form>
+  </mat-step>
+
+
+  <!-- Segundo paso -->
+
+  <mat-step [stepControl]="secondFormGroup" label="Evaluación">
+    <form [formGroup]="secondFormGroup">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Carreras duales</th>
+            <th scope="col">Carreras duales focalizadas</th>
+            <th scope="col">Carreras tradicionales</th>
+          </tr>
+        </thead>
+
+        <tbody class="table-group-divider">
+          <tr>
+            <td>Rendimiento General 50%</td>
+            <td>Rendimiento General 50%</td>
+            <td>Rendimiento General (Empresa) 40%</td>
+          </tr>
+          <tr>
+            <td>Proyecto empresarial (Empresa) 25%</td>
+            <td>Proyecto integrador 50%</td>
+            <td>Rendimiento General (Instituto) 40%</td>
+          </tr>
+          <tr>
+            <td>Proyecto empresarial (Instituto) 25%</td>
+            <td></td>
+            <td>Rendimiento General 50%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="text-align: center; border-width: 1px;" >
+        <button type="button" class="btn btn-outline-primary" matStepperPrevious>Retroceder</button>
+        <button type="button" class="btn btn-outline-primary" matStepperNext>Continuar</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Paso N -->
+
+  <mat-step [stepControl]="secondFormGroup" label="Paso N">
+    <form [formGroup]="secondFormGroup">
+      <div>
+        <h1>jajaja</h1>
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+
+      <div style="text-align: center;">
+        <button type="button" class="btn btn-outline-primary" matStepperPrevious>Retroceder</button>
+        <button type="button" class="btn btn-outline-primary" matStepperNext>Continuar</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!--  Paso  Final -->
+
+  <mat-step>
+    <ng-template matStepLabel>Terminar</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
